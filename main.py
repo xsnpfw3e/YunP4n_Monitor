@@ -91,9 +91,9 @@ def sendmsg(pushdata):
     dingding("新推送",text,webhook,secretKey)
     logging.info("消息发送完成")
 
-def flashCleanData():
+def flashCleanData(cleanKeywords):
     text=""
-    for key in CleanKeywords:
+    for key in cleanKeywords:
         text+="{} ".format(key)
     env_file = os.getenv('GITHUB_ENV')
     with open(env_file, "a") as myfile:
@@ -115,7 +115,7 @@ def yunp4n_main():
                 pushdata.append(tempdata)
                 cleanKeywords.add(tempdata.get("keyword_name"))
     sendmsg(pushdata)
-    flashCleanData()
+    flashCleanData(cleanKeywords)
     return
 
 def test():
