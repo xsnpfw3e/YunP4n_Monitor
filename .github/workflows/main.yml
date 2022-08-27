@@ -29,7 +29,7 @@ jobs:
       
       - name: Run YunP4n_Sec
         env:
-          keywords: '漏洞扫描'
+          keywords: '漏洞扫描 内网渗透 代码审计 SQL注入 XSS 漏洞挖掘'
           github_token: ${{ secrets.GITHUB_TOKEN }}
           secretKey: "SEC33f24a184e46aecd0b2e2cad1df0457d6820cc1d75430880420aca97d54c24f6"
           webhook: "https://oapi.dingtalk.com/robot/send?access_token=d8c16a1142ae1e3077d05234b73826b1b65ec56c38b9ff83564e8b317f372d04"
