@@ -20,7 +20,10 @@ jobs:
           python-version: '3.6'
 
       - name: clean data
-        run: echo "CleanKeywords=$(cat ./clean.txt)" >> $GITHUB_ENV
+        run: |
+          echo 'CleanKeywords<<EOF' >> $GITHUB_ENV
+          cat ./clean.txt >> $GITHUB_ENV
+          echo 'EOF' >> $GITHUB_ENV
 
       - name: Install requirements
         run: |
