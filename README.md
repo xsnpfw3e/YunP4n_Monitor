@@ -39,7 +39,7 @@ on:
 ![image-20211118142412234](images/dingding.png)
 
 ## 编写原理
-wait
+[对Github指定类目的内容进行监控和推送](https://www.cnblogs.com/Cl0ud/p/16631445.html)
 
 ### END 
  
