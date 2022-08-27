@@ -15,9 +15,7 @@ import re
 
 github_token = os.environ.get("github_token")
 webhook= os.environ.get("webhook")
-# webhook= "https://oapi.dingtalk.com/robot/send?access_token=d8c16a1142ae1e3077d05234b73826b1b65ec56c38b9ff83564e8b317f372d04"
 secretKey= os.environ.get("secretKey")
-# secretKey= "SEC33f24a184e46aecd0b2e2cad1df0457d6820cc1d75430880420aca97d54c24f6"
 keywords=os.environ.get("keywords")
 CleanKeywords=os.environ.get("CleanKeywords")
 
@@ -90,11 +88,15 @@ def sendmsg(pushdata):
     text=""
     for data in pushdata:
         text+="工具名称:{}\n工具网址:{}\n详情:{}\n\n\n ".format(data.get("keyword_name"),data.get("keyword_url"),data.get("description"))
-    return
+    dingding("新推送",text,webhook,secretKey)
+    logging.info("消息发送完成")
 
 def flashCleanData():
-    return
-
+    text=""
+    for key in CleanKeywords:
+        text+="{} ".format(key)
+    os.environ['CleanKeywords'] = text
+    logging.info("环境变量刷新成功")
 
 def yunp4n_main():
     init()
@@ -119,4 +121,4 @@ def test():
     init()
 
 if __name__ == '__main__':
-    test()
+    yunp4n_main()
