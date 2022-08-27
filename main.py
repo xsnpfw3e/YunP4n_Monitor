@@ -95,7 +95,9 @@ def flashCleanData():
     text=""
     for key in CleanKeywords:
         text+="{} ".format(key)
-    os.environ['CleanKeywords'] = text
+    env_file = os.getenv('GITHUB_ENV')
+    with open(env_file, "a") as myfile:
+        myfile.write("CleanKeywords={}".format(text))
     logging.info("环境变量刷新成功")
 
 def yunp4n_main():
