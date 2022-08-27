@@ -1,1 +1,1 @@
-xss_payload isomorphic-dompurify test XSS-BOX Cross-site-Scripting Antenna Security Ingram mscan
+Security XSS-BOX xss_payload isomorphic-dompurify Ingram test Cross-site-Scripting Antenna mscan
