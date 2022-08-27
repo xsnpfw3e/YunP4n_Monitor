@@ -28,10 +28,6 @@ def init():
     return
 
 
-def dingding(text, msg,webhook,secretKey):
-    ding = cb.DingtalkChatbot(webhook, secret=secretKey)
-    ding.send_text(msg='{}\r\n{}'.format(text, msg), is_at_all=False)
-
 
 def splitKeywordList():
     return keywords.split()
@@ -65,16 +61,33 @@ def getKeywordNews(keyword):
         logging.error(e, "github链接不通")
     return today_keyword_info_tmp
 
+def dingding(text, msg,webhook,secretKey):
+    ding = cb.DingtalkChatbot(webhook, secret=secretKey)
+    ding.send_text(msg='{}\r\n{}'.format(text, msg), is_at_all=False)
+
+def sendmsg():
+    return
+
+def flashCleanData():
+    return
+
 
 def yunp4n_main():
     init()
     keywords=splitKeywordList()
-    cleanKeywords=splitCleanKeywords()
+    cleanKeywords=set(splitCleanKeywords())
+    pushdata=list()
 
     for keyword in keywords:
         templist=getKeywordNews(keyword)
-
-
+        for tempdata in templist:
+            if tempdata.get("keyword_name") in cleanKeywords:
+                pass
+            else:
+                pushdata.append(tempdata)
+                cleanKeywords.add(tempdata.get("keyword_name"))
+    sendmsg()
+    flashCleanData()
     return
 
 def test():
