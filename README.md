@@ -3,7 +3,7 @@ Github关键字监控，并通过Github Actions自动推送到钉钉
 
 用Github Actions只是因为没VPS :)
 
-## 使用方式
+### 使用方式
 fork仓库 [https://github.com/Cl0udG0d/YunP4n_Monitor](https://github.com/Cl0udG0d/YunP4n_Monitor) 之后
 
 必须进行的配置：
